@@ -1,0 +1,69 @@
+datasource db {
+  provider = "sqlite" // Remova a linha 'url' daqui!
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Admin {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  password String
+}
+
+model Trilha {
+  id       Int            @id @default(autoincrement())
+  name     String
+  summary  String
+  distance String
+  location String
+  mapUrl   String?
+  images   ImagemTrilha[]
+}
+
+model ImagemTrilha {
+  id       Int    @id @default(autoincrement())
+  src      String
+  trilhaId Int
+  trilha   Trilha @relation(fields: [trilhaId], references: [id], onDelete: Cascade)
+}
+
+model Evento {
+  id       Int            @id @default(autoincrement())
+  name     String
+  summary  String
+  location String
+  date     String
+  mapUrl   String?
+  images   ImagemEvento[]
+}
+
+model ImagemEvento {
+  id       Int    @id @default(autoincrement())
+  src      String
+  eventoId Int
+  evento   Evento @relation(fields: [eventoId], references: [id], onDelete: Cascade)
+}
+
+model Cachoeira {
+  id       Int               @id @default(autoincrement())
+  name     String
+  summary  String
+  location String
+  mapUrl   String?
+  images   ImagemCachoeira[]
+}
+
+model ImagemCachoeira {
+  id          Int       @id @default(autoincrement())
+  src         String
+  cachoiraId  Int
+  cachoeira   Cachoeira @relation(fields: [cachoiraId], references: [id], onDelete: Cascade)
+}
+
+model Temporada {
+  id    Int    @id @default(autoincrement())
+  text  String
+  image String
+}
