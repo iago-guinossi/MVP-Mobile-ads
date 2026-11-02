@@ -1,0 +1,18 @@
+{
+  "cli": {
+    "version": ">= 16.0.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "emulador": {
+      "distribution": "internal",
+      "android": { "buildType": "apk" },
+      "env": { "EXPO_PUBLIC_API_URL": "http://10.0.2.2:3000" }
+    },
+    "celular": {
+      "distribution": "internal",
+      "android": { "buildType": "apk" },
+      "env": { "EXPO_PUBLIC_API_URL": "http://192.168.1.13:3000" }
+    }
+  }
+}
