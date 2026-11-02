@@ -1,0 +1,43 @@
+# Terê Verde — mobile (tere-verde-mobile) + API (mvp-back-end)
+
+# Dependências (reinstale com npm install)
+node_modules/
+
+# Variáveis de ambiente: IPs, senhas e chaves ficam só na máquina
+.env
+.env.*
+!.env.example
+
+# Expo / React Native
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+.metro-health-check*
+tere-verde-mobile/ios/
+tere-verde-mobile/android/
+*.jks
+*.p8
+*.p12
+*.key
+*.pem
+*.mobileprovision
+
+# Prisma: client gerado e banco antigo que não é usado (o banco real é prisma/dev.db)
+mvp-back-end/generated/
+mvp-back-end/dev.db
+*.db-journal
+
+# Logs
+*.log
+npm-debug.log*
+
+# Ferramentas e editores
+.claude/
+.vscode/
+.idea/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
